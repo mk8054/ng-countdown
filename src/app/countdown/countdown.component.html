@@ -1,0 +1,29 @@
+<div class="align-countdown">
+  <ng-container *ngIf="initialSeconds >= 0; else expired">
+    <span class="countdown">
+      <span>
+        {{ daysLeft | number : "1.0-0" }}
+        <span class="countdown-unit">d</span>
+      </span>
+      ,
+      <span>
+        {{ hoursLeft }}
+        <span class="countdown-unit">h</span>
+      </span>
+      :
+      <span>
+        {{ minutesLeft }}
+        <span class="countdown-unit">m</span>
+      </span>
+      :
+      <span>
+        {{ secondsLeft }}
+        <span class="countdown-unit">s</span>
+      </span>
+    </span>
+    <span class="countdown-text">(Days , Hours : Minutes : Seconds)</span>
+  </ng-container>
+  <ng-template #expired>
+    <span class="countdown-expired">Deadline reached!</span>
+  </ng-template>
+</div>

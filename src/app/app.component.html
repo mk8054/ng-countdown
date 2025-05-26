@@ -1,0 +1,15 @@
+<div *ngIf="fetching" class="fetching-message">
+  Loading deadline countdown...
+</div>
+<div
+  *ngIf="error == true"
+  class="error-message"
+>
+  Failed to load countdown. Please try again later.
+</div>
+<ng-container *ngIf="fetching == false && error == false">
+  <app-countdown
+    *ngIf="apiSecondsLeft$ | async as apiSecondsLeft"
+    [initialSeconds]="apiSecondsLeft"
+  ></app-countdown>
+</ng-container>
