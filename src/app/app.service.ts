@@ -5,7 +5,7 @@ import { Observable, map } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class AppService {
   /** URL to the backend API */
-  private readonly API_URL = `/api/deadline`;
+  private readonly API_URL = `https://countdown.mohitbhagat.in/api/deadline`;
 
   /** Inject HttpClient for making HTTP requests */
   private readonly http: HttpClient = inject(HttpClient);

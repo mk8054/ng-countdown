@@ -1,15 +1,21 @@
-<div *ngIf="fetching" class="fetching-message">
-  Loading deadline countdown...
+<div class="container">
+  <div class="header">
+    <h1>Countdown Timer in Angular</h1>
+    <p>Lightweight, plugin-free, and optimized for performance!</p>
+    <div class="expiry">
+      ⏳ Timer expires on <strong>December 31, 2025, 11:59 PM (UTC)</strong>
+    </div>
+  </div>
+  <div *ngIf="fetching" class="fetching-message">
+    Loading deadline countdown...
+  </div>
+  <div *ngIf="error == true" class="error-message">
+    Failed to load countdown. Please try again later.
+  </div>
+  <ng-container *ngIf="fetching == false && error == false">
+    <app-countdown
+      *ngIf="apiSecondsLeft$ | async as apiSecondsLeft"
+      [initialSeconds]="apiSecondsLeft"
+    ></app-countdown>
+  </ng-container>
 </div>
-<div
-  *ngIf="error == true"
-  class="error-message"
->
-  Failed to load countdown. Please try again later.
-</div>
-<ng-container *ngIf="fetching == false && error == false">
-  <app-countdown
-    *ngIf="apiSecondsLeft$ | async as apiSecondsLeft"
-    [initialSeconds]="apiSecondsLeft"
-  ></app-countdown>
-</ng-container>
